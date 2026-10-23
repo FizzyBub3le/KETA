@@ -33,7 +33,13 @@ jobs:
         cd $WORK_DIR
         npm install
         npm run build
+        
+        # Android-Plattform hinzufügen
+        npm install @capacitor/android
+        npx cap add android
         npx cap sync android
+        
+        # App bauen
         chmod +x ./android/gradlew
         cd android
         ./gradlew assembleDebug
